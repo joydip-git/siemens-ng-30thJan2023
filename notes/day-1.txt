@@ -53,7 +53,16 @@ TS (latest) => tool (transpiler:typescript/tsc) => old JS code (<ES6)
 
 var obj ={name:'anil', id:1, salary: 10000}
 
-{"name":"anil", "id":1, "salary": 10000}
+[{"name":"anil", "id":1, "salary": 10000},{"name":"sunil", "id":2, "salary": 20000}]
+
+new features in ES:
+a. let and const keywords
+b. spread operator (for copying object)
+c. object destructuring
+d. templated string
+e. class, constructor, super and extends keyword
+f. arrow function
+
 
 
 

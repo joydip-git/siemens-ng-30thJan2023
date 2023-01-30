@@ -12,6 +12,6 @@ export class Person {
     constructor(public id: number, public name: string, public salary: number) {
     }
     print() {
-        return this.name + ' ' + this.salary
+        return `${this.name},${this.id},${this.salary}`
     }
 }
