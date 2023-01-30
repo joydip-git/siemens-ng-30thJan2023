@@ -13,3 +13,49 @@
 	a. JavaScript and HTML
 	b. TypeScript
 	c. web app ecosystem (tools - transpiler, module formatter, bundler etc.)
+
+
+function Module(......){
+		this.exports = {}
+		this.id=''
+		this.children=[]
+		this.path = ''
+}
+
+new Module()
+
+A. module formats:
+a. common js format: [Node JS's default module format]
+	export => module.exports ={ prop1: member1, prop2: member2}
+	import => var e = require('./...')
+
+b. ES6 module format:
+	export => export function add(a,b){}
+	import => import { add, subtract} from './...'
+
+c. AMD (Asynchronous Module Definition)
+d. UMD (Universal Module Definition)
+
+
+B. module loader: [Common JS]
+a. requirejs [only understands AMD]
+b. systemjs
+
+
+
+TypeScript:
+	a. strict typing
+	b. static type checking
+
+Transpilation:
+JS (latest) => tool (transpiler: Babel) => old JS code (<ES6)
+TS (latest) => tool (transpiler:typescript/tsc) => old JS code (<ES6)
+
+var obj ={name:'anil', id:1, salary: 10000}
+
+{"name":"anil", "id":1, "salary": 10000}
+
+
+
+
+

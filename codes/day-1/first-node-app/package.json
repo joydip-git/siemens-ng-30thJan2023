@@ -1,0 +1,13 @@
+{
+  "name": "web-app",
+  "version": "1.0.0",
+  "description": "simple modular web app",
+  "scripts": {
+    "transpile": "tsc --watch"
+  },
+  "author": "joydip",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "person-app",
+  "version": "1.0.0",
+  "description": "simple web app with modules and Typescript",
+  "scripts": {
+    "compile": "tsc --watch",
+    "server": "lite-server"
+  },
+  "author": "joydip",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "typescript": "^4.9.4"
+  }
+}
