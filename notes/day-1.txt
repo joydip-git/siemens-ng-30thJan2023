@@ -1,0 +1,15 @@
+1. Angular:
+	a. client-side framework
+	b. create web app using series of "component"s
+	c. SPA (Single Page Application)
+	d. passing data between code and design and vice versa using binding (data and event)
+	e. superb DI framework
+	f. easy way to pass data between components (nested or routed)
+	g. routing feature
+	h. it helps you create web app using MV-* architecture
+	i. it helps you to split a large app into several feature modules
+
+2. pre-requisites:
+	a. JavaScript and HTML
+	b. TypeScript
+	c. web app ecosystem (tools - transpiler, module formatter, bundler etc.)
