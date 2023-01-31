@@ -1,0 +1,49 @@
+1. component => class => @Component()
+2. directive => class => @Directive()
+		a. *X : structural directive
+		b. X	: attribute directive
+		c. @Component(): component directive
+
+3. pipe => class => @Pipe()
+4. service => class => @Injectable()
+5. module => class => @NgModule()
+
+Decorator functions => @angular/core
+
+Binding:
+passing data from code to view: data binding
+a. {{ data }} => interpolation (converts the property value to string)
+b. <element [attribute-name]="property-of-code"></element> => property binding (retains original type of the property value)
+
+passing data from view to code: event binding
+<element (event-name)="method-of-component(args?)"></element>
+
+@Directive({
+	selector:[ngFor]
+})
+export class NgForDirective{
+	function(expr){
+	}
+}
+
+@NgModule({
+	declarations:[NgForDirective]
+})
+export class CommonModule{
+}
+
+@NgModule({
+	imports:[CommonModule],
+	exports:[CommonModule]
+})
+export class BrowserModule{
+}
+
+*ngIf, *ngFor
+
+
+
+
+
+
+

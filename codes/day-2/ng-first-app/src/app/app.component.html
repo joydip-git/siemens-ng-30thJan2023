@@ -1,0 +1,14 @@
+<h2>
+    {{ welcomeMessage }}
+</h2>
+<br>
+<div>
+    <label for="txtMessage">Enter Message:</label>
+    <input type="text" id="txtMessage" #message [placeholder]="welcomeMessage" [style.width.px]="width">
+</div>
+<br>
+<button type="button" (click)="changeMessage(message.value)">Change Message</button>
+<br><br>
+<app-sample></app-sample>
+<br>
+<app-calculation></app-calculation>

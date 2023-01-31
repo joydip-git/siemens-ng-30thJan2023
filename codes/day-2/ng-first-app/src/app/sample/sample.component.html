@@ -1,0 +1,14 @@
+<h2>List of People</h2>
+<ng-template #norecord>
+    <span>No records found</span>
+</ng-template>
+<ng-template #loading>
+    <span>Loading....</span>
+</ng-template>
+<div *ngIf="people;else loading">
+    <ul *ngIf="people.length>0;else norecord">
+        <li *ngFor="let p of people">
+            {{p}}
+        </li>
+    </ul>
+</div>
