@@ -8,9 +8,9 @@
     <span>No records found</span>
 </ng-template>
 
-<div *ngIf="loadingDone;else loadingTemplate">
+<div *ngIf="loadingDone;else loadingTemplate" class="container">
     <div *ngIf="errorMessage==='';else errorTemplate">
-        <table *ngIf="allProducts && allProducts.length>0;else norecordTemplate">
+        <table *ngIf="allProducts && allProducts.length>0;else norecordTemplate" class="table table-hover">
             <thead>
                 <tr>
                     <th>Image</th>
@@ -19,7 +19,7 @@
                     <th>Rating</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-dark">
                 <tr *ngFor="let p of allProducts">
                     <td>
                         <img [src]="p.imageUrl" alt="NA" [title]="p.productName">
