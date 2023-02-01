@@ -76,3 +76,17 @@ http://127.0.0.1:3003/products/1
 	data:[{},{},{}] or null
 }
 
+Router => 
+
+Routes (Route[])
+Route:
+
+path						component
+---------------------------------
+home     		=> Home
+/						=> Home
+
+products 		=> PL (app-filter-product and app-star)
+products/add => AP
+
+

@@ -9,6 +9,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { productUrl, PRODUCT_SERVICE_TOKEN, PRODUCT_URL_TOKEN } from 'src/constants/app-constants';
 import { StarComponent } from '../common-features/compoments/star/star.component';
 import { ProductFilterPipe } from './pipes/product-filter.pipe';
+import { Routes, RouterModule } from '@angular/router';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+
+const productRoutes: Routes = [
+  {
+    path: 'products',
+    component: ProductListComponent
+  },
+  {
+    path: 'products/:id',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'products/add',
+    component: AddProductComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -17,10 +34,11 @@ import { ProductFilterPipe } from './pipes/product-filter.pipe';
     FilterProductComponent,
     ProductContainerComponent,
     StarComponent,
-    ProductFilterPipe
+    ProductFilterPipe,
+    ProductDetailComponent
   ],
   imports: [
-    CommonModule, HttpClientModule
+    CommonModule, HttpClientModule, RouterModule.forRoot(productRoutes)
   ],
   providers: [
     {
