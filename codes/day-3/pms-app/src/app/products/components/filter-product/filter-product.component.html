@@ -1,1 +1,4 @@
-<p>filter-product works!</p>
+<div class="mb-3">
+    <label for="txtFilter">Filter By: &nbsp; </label>
+    <input type="text" id="txtFilter" [value]="filterText" (keyup)="filterTextChanged(filter.value)" #filter>
+</div>

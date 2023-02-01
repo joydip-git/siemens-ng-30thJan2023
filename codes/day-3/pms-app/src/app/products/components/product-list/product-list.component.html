@@ -1,40 +1,49 @@
-<ng-template #loadingTemplate>
-    <span>Loading...</span>
-</ng-template>
-<ng-template #errorTemplate>
-    <span>{{ errorMessage }}</span>
-</ng-template>
-<ng-template #norecordTemplate>
-    <span>No records found</span>
-</ng-template>
+<div class="container containerStyle">
+    <ng-template #loadingTemplate>
+        <span>Loading...</span>
+    </ng-template>
+    <ng-template #errorTemplate>
+        <span>{{ errorMessage }}</span>
+    </ng-template>
+    <ng-template #norecordTemplate>
+        <span>No records found</span>
+    </ng-template>
 
-<div *ngIf="loadingDone;else loadingTemplate" class="container containerStyle">
-    <div *ngIf="errorMessage==='';else errorTemplate">
-        <table *ngIf="allProducts && allProducts.length>0;else norecordTemplate" class="table table-hover">
-            <thead class="theadStyle">
-                <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            <tbody class="table-dark">
-                <tr *ngFor="let p of allProducts">
-                    <td>
-                        <img class="imgStyle" [src]="p.imageUrl" alt="NA" [title]="p.productName">
-                    </td>
-                    <td>
-                        {{p.productName}}
-                    </td>
-                    <td>
-                        {{p.price}}
-                    </td>
-                    <td>
-                        {{p.starRating}}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <app-filter-product (textChanged)="updateFilterText($event)">
+
+    </app-filter-product>
+    <div class="row">
+        Filtering By:{{filterText}}
+    </div>
+    <br>
+    <div *ngIf="loadingDone;else loadingTemplate">
+        <div *ngIf="errorMessage==='';else errorTemplate">
+            <table *ngIf="allProducts && allProducts.length>0;else norecordTemplate" class="table table-hover">
+                <thead class="theadStyle">
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody class="table-dark">
+                    <tr *ngFor="let p of (allProducts|productfilter:filterText)">
+                        <td>
+                            <img class="imgStyle" [src]="p.imageUrl" alt="NA" [title]="p.productName">
+                        </td>
+                        <td>
+                            {{p.productName|uppercase}}
+                        </td>
+                        <td>
+                            {{p.price|currency:'INR'}}
+                        </td>
+                        <td>
+                            <app-star [rating]="p.starRating"></app-star>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

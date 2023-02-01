@@ -7,13 +7,17 @@ import { ProductContainerComponent } from './components/product-container/produc
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { productUrl, PRODUCT_SERVICE_TOKEN, PRODUCT_URL_TOKEN } from 'src/constants/app-constants';
+import { StarComponent } from '../common-features/compoments/star/star.component';
+import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 @NgModule({
   declarations: [
     AddProductComponent,
     ProductListComponent,
     FilterProductComponent,
-    ProductContainerComponent
+    ProductContainerComponent,
+    StarComponent,
+    ProductFilterPipe
   ],
   imports: [
     CommonModule, HttpClientModule
@@ -29,6 +33,6 @@ import { productUrl, PRODUCT_SERVICE_TOKEN, PRODUCT_URL_TOKEN } from 'src/consta
     }
     // ProductService
   ],
-  exports: [ProductListComponent]
+  exports: [ProductListComponent, StarComponent]
 })
 export class ProductsModule { }
