@@ -6,7 +6,7 @@ import { FilterProductComponent } from './components/filter-product/filter-produ
 import { ProductContainerComponent } from './components/product-container/product-container.component';
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
-import { productUrl, PRODUCT_URL_TOKEN } from 'src/constants/app-constants';
+import { productUrl, PRODUCT_SERVICE_TOKEN, PRODUCT_URL_TOKEN } from 'src/constants/app-constants';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,11 @@ import { productUrl, PRODUCT_URL_TOKEN } from 'src/constants/app-constants';
       provide: PRODUCT_URL_TOKEN,
       useValue: productUrl
     },
-    ProductService
+    {
+      provide: PRODUCT_SERVICE_TOKEN,
+      useClass: ProductService
+    }
+    // ProductService
   ],
   exports: [ProductListComponent]
 })

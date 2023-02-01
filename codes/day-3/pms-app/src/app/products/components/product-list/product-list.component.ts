@@ -1,6 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { PRODUCT_SERVICE_TOKEN } from 'src/constants/app-constants';
 import { Product } from '../../models/product.model';
+import { IProductService } from '../../services/contracts/product.contract';
 import { ProductService } from '../../services/product.service';
 
 //@Injectable()
@@ -16,7 +18,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   errorMessage = ''
   private productSubscription?: Subscription;
 
-  constructor(private ps: ProductService) {
+  constructor(@Inject(PRODUCT_SERVICE_TOKEN) private ps: IProductService) {
 
   }
   ngOnDestroy(): void {
@@ -25,7 +27,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.productSubscription =
       this.ps
-        .getProducts()
+        .getAll()
         .subscribe(
           {
             next: (resp) => {
