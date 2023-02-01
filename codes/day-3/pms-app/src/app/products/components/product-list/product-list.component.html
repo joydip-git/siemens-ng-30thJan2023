@@ -1,1 +1,9 @@
 <p>product-list works!</p>
+<ng-template #loadingTemplate>
+    <span>Loading...</span>
+</ng-template>
+<ul *ngIf="allProducts; else loadingTemplate">
+    <li *ngFor="let p of allProducts">
+        {{p.productName}}
+    </li>
+</ul>

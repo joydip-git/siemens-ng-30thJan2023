@@ -1,9 +1,36 @@
 1. service
 2. fetching data from RESTful API server (Http Requests)
-3. Observable, Observer, RxJS operators, subscription
-4. Pipes
+3. component lifecyle
+4. Observable, Observer, RxJS operators, subscription
+5. Pipes
 
-5.interaction between two components (one is parent and another is nested)
+6.interaction between two components (one is parent and another is nested)
 	@Input(), @Output()
 
-Service:
+
+src>app>
+		app.module.ts
+		common-features
+				compoments
+						dashboard
+								dashboard.component.html+ts+css
+						home
+								home.component.html+ts+css
+		products
+			products.module.ts
+			components
+					add-product
+						add-product.components.*
+					product-list
+							product-list.component.*
+					filter-product
+							filter-product.component.*
+					product-container
+							product-container.component.*
+			pipes
+					product-filter.pipe.ts
+			services
+					product.service.ts
+event interface	method
+X	=> 	OnX	=> 		ngOnX
+
