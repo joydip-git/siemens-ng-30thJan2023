@@ -1,14 +1,18 @@
 import { products } from "src/data/products";
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
 import { ApiResponse } from "../models/api-response.model";
 import { Product } from "../models/product.model";
+import { PRODUCT_URL_TOKEN } from "src/constants/app-constants";
 
 @Injectable()
 export class ProductService {
-    private url = 'http://127.0.0.1:3003/products'
-    constructor(private http: HttpClient) {
+    // private url = 'http://127.0.0.1:3003/products'
+    constructor(
+        private http: HttpClient,
+        @Inject(PRODUCT_URL_TOKEN) private url: string
+    ) {
 
     }
     getProducts(): Observable<ApiResponse<Product[]>> {
