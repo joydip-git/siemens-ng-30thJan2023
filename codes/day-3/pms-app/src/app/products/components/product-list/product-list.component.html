@@ -1,9 +1,40 @@
-<p>product-list works!</p>
 <ng-template #loadingTemplate>
     <span>Loading...</span>
 </ng-template>
-<ul *ngIf="allProducts; else loadingTemplate">
-    <li *ngFor="let p of allProducts">
-        {{p.productName}}
-    </li>
-</ul>
+<ng-template #errorTemplate>
+    <span>{{ errorMessage }}</span>
+</ng-template>
+<ng-template #norecordTemplate>
+    <span>No records found</span>
+</ng-template>
+
+<div *ngIf="loadingDone;else loadingTemplate">
+    <div *ngIf="errorMessage==='';else errorTemplate">
+        <table *ngIf="allProducts && allProducts.length>0;else norecordTemplate">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of allProducts">
+                    <td>
+                        <img [src]="p.imageUrl" alt="NA" [title]="p.productName">
+                    </td>
+                    <td>
+                        {{p.productName}}
+                    </td>
+                    <td>
+                        {{p.price}}
+                    </td>
+                    <td>
+                        {{p.starRating}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
