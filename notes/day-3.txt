@@ -33,4 +33,46 @@ src>app>
 					product.service.ts
 event interface	method
 X	=> 	OnX	=> 		ngOnX
+init		OnInit			ngOnInit
+
+get all products
+http://127.0.0.1:3003/products
+{
+	message:string
+	data:[{},{},{}] or null
+}
+
+
+get single product
+http://127.0.0.1:3003/products/1
+{
+	message:string,
+	data:{} or null
+}
+
+post a product
+http://127.0.0.1:3003/products
+request body: a product object
+
+{
+	message:string
+	data:[{},{},{}] or null
+}
+
+update a product
+http://127.0.0.1:3003/products/1
+request body: a product object
+
+{
+	message:string
+	data:[{},{},{}] or null
+}
+
+delete a product
+http://127.0.0.1:3003/products/1
+
+{
+	message:string
+	data:[{},{},{}] or null
+}
 

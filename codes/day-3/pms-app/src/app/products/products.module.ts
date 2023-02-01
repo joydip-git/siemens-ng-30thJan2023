@@ -5,8 +5,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { FilterProductComponent } from './components/filter-product/filter-product.component';
 import { ProductContainerComponent } from './components/product-container/product-container.component';
 import { ProductService } from './services/product.service';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,7 @@ import { ProductService } from './services/product.service';
     ProductContainerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, HttpClientModule
   ],
   providers: [ProductService],
   exports: [ProductListComponent]
