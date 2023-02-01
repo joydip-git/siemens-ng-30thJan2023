@@ -1,0 +1,9 @@
+1. service
+2. fetching data from RESTful API server (Http Requests)
+3. Observable, Observer, RxJS operators, subscription
+4. Pipes
+
+5.interaction between two components (one is parent and another is nested)
+	@Input(), @Output()
+
+Service:
