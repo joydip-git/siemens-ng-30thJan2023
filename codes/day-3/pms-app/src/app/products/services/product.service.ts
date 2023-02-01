@@ -5,9 +5,10 @@ import { map, Observable } from "rxjs";
 import { ApiResponse } from "../models/api-response.model";
 import { Product } from "../models/product.model";
 import { PRODUCT_URL_TOKEN } from "src/constants/app-constants";
+import { IService } from "./contracts/product.contract";
 
 @Injectable()
-export class ProductService {
+export class ProductService implements IService<Product>{
     // private url = 'http://127.0.0.1:3003/products'
     constructor(
         private http: HttpClient,

@@ -1,10 +1,11 @@
 import { Observable } from "rxjs";
 import { ApiResponse } from "../../models/api-response.model";
+import { Product } from "../../models/product.model";
 
-export interface IService<T, TInput> {
-    getAll(): Observable<ApiResponse<T>>;
-    get(): Observable<ApiResponse<T>>;
-    add(data: TInput): Observable<ApiResponse<T>>;
-    add(data: TInput): Observable<ApiResponse<T>>;
-    delet(id: number): Observable<ApiResponse<T>>;
+export interface IProductService {
+    getAll(): Observable<ApiResponse<Product[]>>;
+    get(): Observable<ApiResponse<Product>>;
+    add(data: Product): Observable<ApiResponse<Product[]>>;
+    add(data: Product): Observable<ApiResponse<Product[]>>;
+    delet(id: number): Observable<ApiResponse<Product[]>>;
 }
