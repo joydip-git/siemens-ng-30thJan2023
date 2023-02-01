@@ -5,10 +5,10 @@ import { map, Observable } from "rxjs";
 import { ApiResponse } from "../models/api-response.model";
 import { Product } from "../models/product.model";
 import { PRODUCT_URL_TOKEN } from "src/constants/app-constants";
-import { IService } from "./contracts/product.contract";
+import { IProductService } from "./contracts/product.contract";
 
 @Injectable()
-export class ProductService implements IService<Product>{
+export class ProductService implements IProductService {
     // private url = 'http://127.0.0.1:3003/products'
     constructor(
         private http: HttpClient,
@@ -16,6 +16,22 @@ export class ProductService implements IService<Product>{
     ) {
 
     }
+    getAll(): Observable<ApiResponse<Product[]>> {
+        return this.http.get<ApiResponse<Product[]>>(this.url)
+    }
+    get(id: number): Observable<ApiResponse<Product>> {
+        return this.http.get<ApiResponse<Product>>(`${this.url}/${id}`)
+    }
+    add(data: Product): Observable<ApiResponse<Product[]>> {
+        return this.http.post<ApiResponse<Product[]>>(this.url, data)
+    }
+    update(data: Product): Observable<ApiResponse<Product[]>> {
+        return this.http.put<ApiResponse<Product[]>>(`${this.url}/${data.productId}`, data)
+    }
+    delet(id: number): Observable<ApiResponse<Product[]>> {
+        return this.http.delete<ApiResponse<Product[]>>(`${this.url}/${id}`)
+    }
+    /*
     getProducts(): Observable<ApiResponse<Product[]>> {
         return this.http.get<ApiResponse<Product[]>>(this.url)
         //const obs: Observable<Object> = this.http.get(this.url)
@@ -42,4 +58,5 @@ export class ProductService implements IService<Product>{
         // return { ...found }
         return this.http.get<ApiResponse<Product>>(`${this.url}/${id}`)
     }
+    */
 }
